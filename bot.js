@@ -36,7 +36,6 @@ bot.on('message', message => {
 				message.delete().catch(console.error);
 			break;
 			case 'bttm' :
-				logger.info(message.id);
 				message.channel.fetchMessages({limit: 2})
 								.then(messages => messages.array()[1].channel
 										.send(pokemonText(messages.array()[1].content)).catch(console.error)
