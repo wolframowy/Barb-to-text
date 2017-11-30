@@ -1,1 +1,1 @@
-# Barb-to-text discord bot redme
+# Barb-to-text discord bot readme
