@@ -1,0 +1,11 @@
+{
+  "name": "gBarb-to-text",
+  "version": "0.1.0",
+  "description": "Speak PoKeMoN now!",
+  "main": "bot.js",
+  "author": "Quiree",
+  "dependencies": {
+    "discord.js": "latest",
+    "winston": "latest"
+  }
+}
