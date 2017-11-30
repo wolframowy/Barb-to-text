@@ -21,18 +21,27 @@ bot.on('message', message => {
 	if (message.content.substring(0, 1) == '!') {
 		var args = message.content.substring(1).split(' ');
 		var cmd = args[0];
-		args.shift();
-		var txt = args.join(' ');
+
 	   
 		switch(cmd) {
-			// !ping
 			case 'help' :
 				message.author.send(
-					"Here are the commands available to you:\n!help \n!bttpm [message]"
+					"Here are the commands available to you:\n!help \n!bttpm [message] \n!bttm"
 				).catch(console.error);
 			break;
 			case 'bttpm':
+				args.shift();
+				var txt = args.join(' ');
 				message.channel.send(pokemonText(txt)).catch(console.error);
+				message.delete().catch(console.error);
+			break;
+			case 'bttm' :
+				logger.info(message.id);
+				message.channel.fetchMessages({limit: 2})
+								.then(messages => messages.array()[1].channel
+										.send(pokemonText(messages.array()[1].content)).catch(console.error)
+									 )
+								.catch(console.error);
 				message.delete().catch(console.error);
 			break;
 			// Just add any case commands if you want to..
