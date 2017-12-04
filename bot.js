@@ -37,11 +37,13 @@ bot.on('message', message => {
 			break;
 			case 'bttm' :
 				message.channel.fetchMessages({limit: 2})
-								.then(messages => {if(messages.array()[1].content) {messages.array()[1].channel
-								.send(pokemonText(messages.array()[1].content)).catch(console.error)}}
-									 )
-								.catch(console.error);
-				message.delete().catch(console.error);
+								.then(messages => {
+									if(messages.array()[1].content) {
+										messages.array()[1].channel
+											.send(pokemonText(messages.array()[1].content)).catch(console.error)};
+									messages.array()[0].delete().catch(console.error);
+									}
+								).catch(console.error);
 			break;
 			// Just add any case commands if you want to..
 		 }
