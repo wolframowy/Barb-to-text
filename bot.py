@@ -30,6 +30,11 @@ def pokemon_text(txt: str):
     return new_txt
 
 
+@client.event
+async def on_ready():
+    print("Bot's up. Everything went fine.")
+    await client.change_presence(activity=discord.Game(name='!btthelp for list of commands'))
+
 
 @client.event
 async def on_message(message):
