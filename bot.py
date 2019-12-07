@@ -1,8 +1,7 @@
-import os
-
 import discord
 import logging
 import json
+import urllib, time
 
 logging.basicConfig(level=logging.INFO)
 
@@ -58,4 +57,16 @@ async def on_message(message):
         # Just add any case commands if you want to..
 
 
+loop_value = True
+iteration = 0
+while loop_value:
+    try:
+        urllib.request.urlopen("https://google.com")
+        loop_value = False
+    except urllib.error.URLError as e:
+        print('Network is currently down')
+        iteration += 1
+        if iteration > 100:
+            break
+        time.sleep(5)
 client.run(token)
